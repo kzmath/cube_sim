@@ -303,7 +303,7 @@ def draw_cube(surface, cube, center, side):
     draw_face(surface, cube, "F", origin, side)
     draw_face(surface, cube, "R", origin, side)
     draw_face(surface, cube, "U", origin, side)
-
+    # Draw hidden faces on the side
     draw_face(surface, cube, "B", origin + 1.2*side*y_axis, side)
     draw_face(surface, cube, "L", origin - 1.2*side*x_axis, side)
     draw_face(surface, cube, "D", origin - 1.2*side*z_axis, side)
@@ -357,9 +357,7 @@ def main():
 
 
         screen.fill("black")
-
         draw_cube(screen, cube, (width / 2, height / 2), 150)
-
         pygame.display.flip()
         clock.tick(60)
 

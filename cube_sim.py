@@ -154,6 +154,8 @@ class Cube:
         self.moves["F"] = Rotation("y", False, [0])
         self.moves["F'"] = Rotation("y", True, [0])
 
+        self.moves["M"] = Rotation("x", True, [1])
+
         self.moves["R3"] = Rotation("x", True, [0, 1, 2])
         self.moves["R3'"] = Rotation("x", False, [0, 1, 2])
 
@@ -310,6 +312,7 @@ def main():
     pygame.init()
     width = 1280
     height = 720
+    pygame.display.set_caption("Rubik's cube simulator")
     screen = pygame.display.set_mode((width, height), pygame.SCALED)
     clock = pygame.time.Clock()
     running = True
@@ -346,6 +349,8 @@ def main():
                     cube.move("U")
                 if event.key == pygame.K_u and shift_pressed:
                     cube.move("U'")
+                if event.key == pygame.K_m:
+                    cube.move("M")
 
                 if event.key == pygame.K_SPACE:
                     cube.reset()
